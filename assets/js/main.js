@@ -152,7 +152,7 @@
                                 <img src="${imagePath}" class="img-fluid" loading="lazy" alt="">
                                 <div class="gallery-links d-flex align-items-center justify-content-center">
                                     <a href="${imagePath}" title="" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                                    <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+<!--                                    <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
                                 </div>
                             </div>
                         `;
