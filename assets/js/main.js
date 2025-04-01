@@ -133,4 +133,35 @@
 
   window.addEventListener("load", initSwiper);
 
+  /**
+   * Load images by category
+   */
+  function loadImagesByCategory(category) {
+    const galleryContainer = document.getElementById('gallery-container');
+    fetch('gallery-images.json')
+        .then(response => response.json())
+        .then(data => {
+          const images = data[category];
+          if (images) {
+            images.forEach(image => {
+              const imagePath = `assets/img/gallery/${image}`;
+              const galleryItem = document.createElement('div');
+              galleryItem.className = 'col-xl-3 col-lg-4 col-md-6';
+              galleryItem.innerHTML = `
+                            <div class="gallery-item h-100">
+                                <img src="${imagePath}" class="img-fluid" loading="lazy" alt="">
+                                <div class="gallery-links d-flex align-items-center justify-content-center">
+                                    <a href="${imagePath}" title="" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                                    <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        `;
+              galleryContainer.appendChild(galleryItem);
+            });
+          }
+        });
+  }
+
+  // 暴露函数到全局作用域，以便在页面中调用
+  window.loadImagesByCategory = loadImagesByCategory;
 })();
